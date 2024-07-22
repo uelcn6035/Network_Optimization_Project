@@ -1,6 +1,7 @@
 # Optimized Network
 
 ## Access Switch 1-4
+```bash
 interface range F0/1-2
  switchport mode trunk
 
@@ -17,12 +18,14 @@ interface range F0/21-24
  spanning-tree bpduguard enable
 ```
 ## DSW-1
+```bash
 int f0/7
 switchport trunk encapsulation dot1q 
 switchport mode trunk
 ex
 ```
 ## WLC-Control-PC
+```bash
 int f0/10
 switchport mode access
 switchport access vlan 10
@@ -32,6 +35,7 @@ spanning-tree bpduguard enable
 ex
 ```
 ## WLC
+```bash
 int f0/9
 switchport mode access
 switchport access vlan 20
@@ -40,12 +44,14 @@ spanning-tree portfast
 ex
 ```
 ## Link to Access Switch
+```bash
 interface range F0/1-4
 switchport trunk encapsulation dot1q 
 switchport mode trunk
 ex
 ```
 ## VLAN Configuration
+```bash
 vlan 10
 name LAN
 ex
@@ -57,6 +63,7 @@ name VOICE
 ex
 ```
 ## Interface Configuration
+```bash
 interface range F0/22-24
 channel-group 1 mode active
 interface port-channel 1
@@ -65,6 +72,7 @@ switchport mode trunk
 ex
 ```
 ## HSRP & INTER-VLAN Routing
+```bash
 int vlan 10
 ip add 192.168.1.1 255.255.255.224
 ip helper-address  192.168.1.110
@@ -92,18 +100,21 @@ ip add 192.168.1.93 255.255.255.252
 ex
 ```
 ## DSW-2
+```bash
 int f0/7
 switchport trunk encapsulation dot1q 
 switchport mode trunk
 ex
 ```
 ## DHCP Server
+```bash
 int f0/10
 no switchport 
 ip add 192.168.1.109 255.255.255.252
 ex
 ```
 ## WLC
+```bash
 int f0/9
 switchport mode access
 switchport access vlan 20
@@ -112,12 +123,14 @@ spanning-tree portfast
 ex
 ```
 ## Link to Access Switch
+```bash
 interface range F0/1-4
 switchport trunk encapsulation dot1q 
 switchport mode trunk
 ex
 ```
 ## VLAN Configuration
+```bash
 vlan 10
 name LAN
 ex
@@ -129,6 +142,7 @@ name VOICE
 ex
 ```
 ## Interface Configuration
+```bash
 interface range F0/22-24
 channel-group 1 mode passive
 interface port-channel 1
@@ -144,6 +158,7 @@ no switchport mode trunk
 ex
 ```
 ## HSRP & INTER-VLAN Routing
+```bash
 int vlan 10
 ip add 192.168.1.3 255.255.255.224
 ip helper-address  192.168.1.110
@@ -171,6 +186,7 @@ ip add 192.168.1.89 255.255.255.252
 ex
 ```
 ## Core Router
+```bash
 en
 conf t
 int f0/1
@@ -189,6 +205,7 @@ no shut
 ex
 ```
 ## ISP Router
+```bash
 int g0/0/0
 ip add 192.168.1.97 255.255.255.252
 ex
@@ -199,6 +216,7 @@ ex
 ```
 ## OSPF Config
 ### Distribution switch 1
+```bash
 ip routing
 router ospf 1
 router-id 1.1.1.1
@@ -208,6 +226,7 @@ network 192.168.1.32 0.0.0.31 area 0
 network 192.168.1.64 0.0.0.15 area 0
 ```
 ### Distribution switch 2
+```bash
 ip routing
 router ospf 1
 router-id 2.2.2.2
@@ -218,6 +237,7 @@ network 192.168.1.32 0.0.0.31 area 0
 network 192.168.1.64 0.0.0.15 area 0
 ```
 ### CORE ROUTER
+```bash
 router ospf 1
 router-id 3.3.3.3
 network 192.168.1.92 0.0.0.3 area 0
@@ -226,6 +246,7 @@ network 192.168.1.104 0.0.0.3 area 0
 ex
 ```
 ### ISP CORE
+```bash
 router ospf 1
 router-id 4.4.4.4
 network 192.168.1.96 0.0.0.3 area 0
@@ -233,6 +254,7 @@ network 192.168.1.100 0.0.0.3 area 0
 ex
 ```
 ### IBM Cloud Instance
+```bash
 router ospf 1
 router-id 5.5.5.5
 network 10.10.1.96 0.0.0.7 area 0
@@ -240,6 +262,7 @@ network 192.168.1.100 0.0.0.3 area 0
 ex
 ```
 ## VOICE VLAN
+```bash
 int fa1/1.30
 encapsulation dot1Q 30
 ip add 192.168.1.65 255.255.255.240
