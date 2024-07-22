@@ -33,3 +33,7 @@ Contributions are welcome. Please open an issue to discuss your ideas or submit 
 ## License
 
 This project is free to use for conventional practices.
+
+## Disclaimer
+
+This project is for educational purposes only. Please use caution when implementing these configurations in a production environment.
