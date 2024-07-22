@@ -1,5 +1,3 @@
-# Optimized Network
-
 ## Access Switch 1-4
 ```bash
 interface range F0/1-2
